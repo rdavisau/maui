@@ -105,18 +105,9 @@ namespace Microsoft.Maui.Platform
 				return null;
 
 			float density = _context.GetDisplayDensity();
-
 			float strokeThickness = (float)(Clip.StrokeThickness * density);
-
 			IShape clipShape = Clip.Shape;
-
-			float x = strokeThickness / 2;
-			float y = strokeThickness / 2;
-			float w = width - strokeThickness;
-			float h = height - strokeThickness;
-
-			var bounds = new Graphics.RectF(x, y, w, h);
-
+			var bounds = new Graphics.RectF(0, 0, width, height);
 			Path? platformPath = clipShape.ToPlatform(bounds, strokeThickness, true);
 			return platformPath;
 		}
